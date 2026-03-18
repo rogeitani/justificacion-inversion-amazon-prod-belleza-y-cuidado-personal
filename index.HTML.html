@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justificación Estratégica - CURDANGIOLI</title>
+    <!-- Palette: Energetic & Playful Vibrant (Indigo, Cyan, Pink, Emerald, Amber) -->
+    <!-- Narrative Plan: 1. Overview ($7k Investment & Pillars), 2. Product Portfolio (ROI Comparisons), 3. Strategic Deep Dives (Cosrx, CeraVe, Neutrogena logic), 4. Macro Strategy (Tax efficiency & Legal). -->
+    <!-- Visualization Choices: 1. Big Numbers -> Inform -> Tailwind Text -> Best for KPIs. 2. Bar Chart -> Compare -> Chart.js -> ROI comparison across products (NO SVG). 3. Grouped Bar -> Compare -> Chart.js -> CeraVe Single vs Pack ROI (NO SVG). 4. Flowchart -> Organize -> HTML/Tailwind -> Supply chain & Tax flow (NO SVG/Mermaid). -->
+    <!-- Confirmation: I explicitly confirm that NEITHER Mermaid JS NOR SVG were used anywhere in this output. -->
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 400px; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <nav class="sticky top-0 z-50 bg-indigo-900 shadow-lg border-b-4 border-cyan-400">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-black text-white tracking-widest uppercase">CURDANGIOLI <span class="text-pink-500">FBA</span></h1>
+            <div class="text-cyan-400 font-bold bg-indigo-800 px-4 py-2 rounded-full border border-cyan-400/30">
+                Capital: $7,000 USD
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-10 space-y-16">
+
+        <section class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+            <div class="bg-indigo-900 p-8 md:p-12 text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full opacity-10 text-9xl overflow-hidden select-none flex items-center justify-center">
+                    📈📈📈
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 relative z-10">Justificación Estratégica de Selección de Inventario</h2>
+                <p class="text-lg md:text-xl text-indigo-200 max-w-3xl mx-auto font-medium relative z-10">
+                    Este informe detalla las razones técnicas y comerciales por las cuales se han seleccionado tres productos específicos para la inversión inicial. La selección no es un azar; se basa en el cruce de tres métricas críticas fundamentales para proteger y multiplicar el capital.
+                </p>
+            </div>
+            
+            <div class="p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🔄</div>
+                    <h3 class="text-xl font-black text-emerald-900 uppercase tracking-wide mb-2">Rotación de Inventario</h3>
+                    <p class="text-emerald-700 font-medium">Priorización de productos Top 1% BSR para asegurar ciclos de venta inferiores a 20 días.</p>
+                </div>
+                <div class="bg-pink-50 border-2 border-pink-500 rounded-2xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-black text-pink-900 uppercase tracking-wide mb-2">Protección de Marca (IP)</h3>
+                    <p class="text-pink-700 font-medium">Uso exclusivo de distribuidores autorizados para garantizar facturas legales y evitar bloqueos.</p>
+                </div>
+                <div class="bg-cyan-50 border-2 border-cyan-500 rounded-2xl p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🚚</div>
+                    <h3 class="text-xl font-black text-cyan-900 uppercase tracking-wide mb-2">Eficiencia Logística</h3>
+                    <p class="text-cyan-700 font-medium">Aprovechamiento de lagunas fiscales y optimización de peso/tamaño para minimizar fees de Amazon.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-black text-indigo-900 mb-4">Análisis Comparativo del Portafolio</h2>
+                <p class="text-slate-600 text-lg">
+                    La composición del inventario equilibra la alta rentabilidad agresiva con la estabilidad de consumo masivo. A continuación, se visualiza el impacto directo de nuestras decisiones estratégicas sobre el Retorno de Inversión (ROI) proyectado.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 md:p-10 rounded-3xl shadow-lg border-t-8 border-pink-500">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="chart-container">
+                        <canvas id="roiComparisonChart"></canvas>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-black text-slate-800">El Impacto del Bundling en CeraVe</h3>
+                        <p class="text-slate-600 text-lg leading-relaxed">
+                            La visualización demuestra por qué no vendemos la crema CeraVe de forma individual. Al consolidar tres unidades en un solo paquete (Bundling), diluimos drásticamente las tarifas logísticas de Amazon por envío.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-2xl">❌</span>
+                                <div>
+                                    <strong class="text-pink-600 block">Venta Individual (2% ROI)</strong>
+                                    <span class="text-slate-500">El margen es devorado por las tarifas fijas de recolección y envío.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-2xl">✅</span>
+                                <div>
+                                    <strong class="text-emerald-600 block">Pack de 3 (27% ROI)</strong>
+                                    <span class="text-slate-500">Se paga un solo envío por tres productos, multiplicando la rentabilidad y estabilizando el portafolio.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-black text-indigo-900 mb-4">Desglose de Productos Seleccionados</h2>
+                <p class="text-slate-600 text-lg">
+                    Cada producto en nuestra inversión de $7,000 USD cumple un rol financiero específico, desde generar el flujo de caja principal hasta calentar algorítmicamente la cuenta de vendedor.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-3xl shadow-md border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-cyan-500 p-6 text-center">
+                        <div class="text-5xl mb-2">🐌</div>
+                        <h3 class="text-xl font-black text-white">Cosrx Advanced Snail 96</h3>
+                        <p class="text-cyan-100 font-bold text-sm uppercase">El Motor de Ganancia</p>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="mb-6 relative h-48 w-full">
+                            <canvas id="cosrxChart"></canvas>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4">
+                            Best Seller indiscutible de K-Beauty. Mantiene un BSR Top 1% garantizando que las 350 unidades se liquiden en menos de 20 días.
+                        </p>
+                        <div class="mt-auto space-y-3">
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex justify-between items-center">
+                                <span class="font-bold text-slate-500">Fidelidad</span>
+                                <span class="font-black text-cyan-600">Reposición 60 días</span>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex justify-between items-center">
+                                <span class="font-bold text-slate-500">Margen</span>
+                                <span class="font-black text-cyan-600">Seguridad Extrema</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-md border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-indigo-600 p-6 text-center">
+                        <div class="text-5xl mb-2">🧴</div>
+                        <h3 class="text-xl font-black text-white">CeraVe Moisturizing</h3>
+                        <p class="text-indigo-200 font-bold text-sm uppercase">La Ancla de Estabilidad</p>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="mb-6 text-center">
+                            <div class="text-7xl font-black text-indigo-600 mb-2">&lt;1%</div>
+                            <div class="text-sm font-bold text-slate-400 uppercase tracking-widest">Tasa de Devolución</div>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4">
+                            Marca #1 recomendada por dermatólogos. Tráfico orgánico directo (cero gasto en PPC). Al ser higiene básica, las devoluciones son casi nulas.
+                        </p>
+                        <div class="mt-auto space-y-3">
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex justify-between items-center">
+                                <span class="font-bold text-slate-500">Riesgo Imprevisto</span>
+                                <span class="font-black text-indigo-600">Mitigado</span>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex justify-between items-center">
+                                <span class="font-bold text-slate-500">Táctica</span>
+                                <span class="font-black text-indigo-600">Pack de 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-md border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-pink-500 p-6 text-center">
+                        <div class="text-5xl mb-2">💧</div>
+                        <h3 class="text-xl font-black text-white">Neutrogena Hydro Boost</h3>
+                        <p class="text-pink-100 font-bold text-sm uppercase">Consumo Masivo</p>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="mb-6 relative h-48 w-full">
+                            <canvas id="neutrogenaChart"></canvas>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4">
+                            Pilar del cuidado de la piel que "calienta" la cuenta ante el algoritmo de Amazon. Envase pequeño y ligero que reduce drásticamente los fees de almacenamiento.
+                        </p>
+                        <div class="mt-auto space-y-3">
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex justify-between items-center">
+                                <span class="font-bold text-slate-500">Coste Almacén</span>
+                                <span class="font-black text-pink-600">Mínimo</span>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex justify-between items-center">
+                                <span class="font-bold text-slate-500">Rol Algorítmico</span>
+                                <span class="font-black text-pink-600">Alta Reputación</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="bg-indigo-900 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 text-[20rem] opacity-5 select-none">⚖️</div>
+            
+            <div class="relative z-10 text-center mb-12">
+                <h2 class="text-3xl font-black text-white mb-4">Razones Macroeconómicas y Flujo Operativo</h2>
+                <p class="text-indigo-200 text-lg max-w-3xl mx-auto">
+                    El éxito de CURDANGIOLI no depende solo de qué vendemos, sino de cómo lo movemos. La resiliencia del nicho de cuidado personal ("antirecesión") se potencia con una cadena de suministro blindada.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-8 mb-12">
+                <div class="bg-white/10 border border-white/20 p-6 rounded-2xl text-center flex-1 flex flex-col justify-center relative backdrop-blur-sm">
+                    <div class="text-4xl mb-3">🏭</div>
+                    <h4 class="text-white font-bold text-lg mb-1">Proveedores USA</h4>
+                    <p class="text-indigo-200 text-sm">UTN Wholesale / SDA</p>
+                    <div class="mt-4 inline-block bg-emerald-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">Facturas Legales</div>
+                </div>
+                
+                <div class="flex items-center justify-center py-4 md:py-0">
+                    <div class="text-cyan-400 text-4xl rotate-90 md:rotate-0 font-black">➔</div>
+                </div>
+
+                <div class="bg-cyan-500 border border-cyan-400 p-6 rounded-2xl text-center flex-1 flex flex-col justify-center relative shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+                    <div class="text-4xl mb-3">📦</div>
+                    <h4 class="text-white font-black text-lg mb-1">Almacén Delaware</h4>
+                    <p class="text-cyan-100 text-sm font-medium">Prep Center Tax-Free</p>
+                    <div class="mt-4 bg-white text-cyan-800 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider border-2 border-dashed border-cyan-800">
+                        Ahorro $400 - $500
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center py-4 md:py-0">
+                    <div class="text-cyan-400 text-4xl rotate-90 md:rotate-0 font-black">➔</div>
+                </div>
+
+                <div class="bg-white/10 border border-white/20 p-6 rounded-2xl text-center flex-1 flex flex-col justify-center relative backdrop-blur-sm">
+                    <div class="text-4xl mb-3">🛒</div>
+                    <h4 class="text-white font-bold text-lg mb-1">Amazon FBA</h4>
+                    <p class="text-indigo-200 text-sm">Plataforma de Venta</p>
+                    <div class="mt-4 inline-block bg-pink-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">Cero Bloqueos IP</div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl text-center max-w-4xl mx-auto border-l-8 border-cyan-500">
+                <p class="text-slate-800 text-lg font-medium">
+                    <strong class="text-indigo-900 font-black">Conclusión de Inversión:</strong> Al operar con el almacén en Delaware, maximizamos el capital evadiendo impuestos estatales. Esos dólares ahorrados permiten aumentar la profundidad de inventario de Neutrogena. Este mix garantiza que recuperaremos el capital rápido para reinvertir en un segundo pedido a mayor escala.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 py-8 text-center border-t-4 border-pink-500">
+        <p class="text-slate-500 text-sm font-bold tracking-widest uppercase">© CURDANGIOLI LLC - Informe Confidencial</p>
+    </footer>
+
+    <script>
+        function wrapLabel(label) {
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const tooltipConfig = {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        } else {
+                            return label;
+                        }
+                    }
+                },
+                backgroundColor: '#1e293b',
+                padding: 12,
+                titleFont: { size: 14, family: 'Inter' },
+                bodyFont: { size: 14, family: 'Inter' },
+                cornerRadius: 8,
+                displayColors: false
+            }
+        };
+
+        const ctxComparison = document.getElementById('roiComparisonChart').getContext('2d');
+        new Chart(ctxComparison, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('CeraVe (Venta Individual)'), 
+                    wrapLabel('CeraVe (Pack de 3)'), 
+                    wrapLabel('Cosrx Mucin Essence')
+                ],
+                datasets: [{
+                    label: 'ROI Proyectado (%)',
+                    data: [2, 27, 56],
+                    backgroundColor: [
+                        '#f43f5e', 
+                        '#10b981', 
+                        '#06b6d4'  
+                    ],
+                    borderWidth: 0,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    ...tooltipConfig
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#f1f5f9' },
+                        ticks: {
+                            callback: function(value) { return value + '%' },
+                            font: { family: 'Inter', weight: 'bold' }
+                        }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Inter', weight: 'bold' } }
+                    }
+                }
+            }
+        });
+
+        const ctxCosrx = document.getElementById('cosrxChart').getContext('2d');
+        new Chart(ctxCosrx, {
+            type: 'doughnut',
+            data: {
+                labels: [wrapLabel('Retorno de Inversión (ROI)'), wrapLabel('Costo y Tarifas')],
+                datasets: [{
+                    data: [56, 44],
+                    backgroundColor: ['#06b6d4', '#e2e8f0'],
+                    borderWidth: 0,
+                    cutout: '75%'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    ...tooltipConfig
+                }
+            },
+            plugins: [{
+                id: 'textCenter',
+                beforeDraw: function(chart) {
+                    var width = chart.width, height = chart.height, ctx = chart.ctx;
+                    ctx.restore();
+                    var fontSize = (height / 100).toFixed(2);
+                    ctx.font = "black " + fontSize + "em Inter";
+                    ctx.textBaseline = "middle";
+                    ctx.fillStyle = "#06b6d4";
+                    var text = "56%",
+                        textX = Math.round((width - ctx.measureText(text).width) / 2),
+                        textY = height / 2;
+                    ctx.fillText(text, textX, textY);
+                    ctx.save();
+                }
+            }]
+        });
+
+        const ctxNeutrogena = document.getElementById('neutrogenaChart').getContext('2d');
+        new Chart(ctxNeutrogena, {
+            type: 'line',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Precisión de Precio Est.',
+                    data: [95, 96, 95, 95, 94, 95],
+                    borderColor: '#ec4899',
+                    backgroundColor: 'rgba(236, 72, 153, 0.2)',
+                    borderWidth: 4,
+                    pointBackgroundColor: '#ec4899',
+                    pointRadius: 6,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    ...tooltipConfig
+                },
+                scales: {
+                    y: {
+                        min: 90,
+                        max: 100,
+                        grid: { display: false },
+                        ticks: {
+                            callback: function(value) { return value + '%' },
+                            font: { family: 'Inter', weight: 'bold' }
+                        }
+                    },
+                    x: {
+                        grid: { color: '#f1f5f9' },
+                        ticks: { font: { family: 'Inter' } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
